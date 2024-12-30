@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals/screens/categories.dart';
 import 'package:meals/screens/meals.dart';
+import 'package:meals/screens/profile.dart';
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
@@ -28,6 +29,9 @@ class _TabsScreenState extends State<TabsScreen> {
     if (_selectedPageIndex == 1) {
       activePage = const MealsScreen(meals: []);
       activePageTitle = 'Your Favourites';
+    } else if (_selectedPageIndex == 2) {
+      activePage = const ProfileScreen();
+      activePageTitle = 'Profile';
     }
 
     return Scaffold(
@@ -43,6 +47,8 @@ class _TabsScreenState extends State<TabsScreen> {
           BottomNavigationBarItem(
               icon: Icon(Icons.set_meal), label: 'Categories'),
           BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Favorites'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.verified_user), label: 'Profile'),
         ],
       ),
     );
